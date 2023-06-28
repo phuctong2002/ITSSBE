@@ -9,6 +9,8 @@ import com.example.ITSSBE.repository.IUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -30,9 +32,12 @@ public class UserService {
 
 
     public UserDTO addUser(UserDTO userDTO) {
-        Role role = roleRepo.findByName("CUSTOMER");
+        Role role = roleRepo.findByName(userDTO.getRole_name());
         User user = userConverter.toEntity(userDTO, role);
         User savedUser = userRepo.save(user);
         return userConverter.toDTO(savedUser);
+    }
+    public List<Role> getAllRoles() {
+        return roleRepo.findAll();
     }
 }

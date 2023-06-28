@@ -27,4 +27,9 @@ public class UserController {
     public ResponseEntity<Object> addUser( @RequestBody UserDTO userDTO){
         return new ResponseEntity<>(userService.addUser(userDTO), HttpStatus.CREATED);
     }
+    @GetMapping("/role")
+    public ResponseEntity<Object> getRoles(){
+        return new ResponseEntity<>( userService.getAllRoles(), HttpStatus.OK);
+    }
+
 }
