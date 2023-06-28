@@ -12,4 +12,5 @@ public interface IUserRepo extends JpaRepository<User, Integer> {
 //    User findByGmailAndPassword(@Param("gmail") String gmail, @Param("password") String password);
     User findByGmailAndPassword(String gmail, String password);
 
+    User findFirstById(int id);
 }

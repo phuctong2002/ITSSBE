@@ -29,6 +29,8 @@ public class User {
     private String gmail;
     @Column( name = "password")
     private String password;
+    @Column( name = "phone")
+    private String phone;
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "role")
     private Role role;

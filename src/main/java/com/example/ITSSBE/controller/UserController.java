@@ -19,4 +19,12 @@ public class UserController {
         if (confirmUserDTO == null) return null;
         return new ResponseEntity<>(confirmUserDTO, HttpStatus.OK);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getUserInfo(@PathVariable int id){
+        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
+    }
+    @PostMapping("/register")
+    public ResponseEntity<Object> addUser( @RequestBody UserDTO userDTO){
+        return new ResponseEntity<>(userService.addUser(userDTO), HttpStatus.CREATED);
+    }
 }
