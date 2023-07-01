@@ -32,4 +32,6 @@ public class Equipment {
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "room")
     private Room room;
+    @Column( name = "is_deleted")
+    private boolean is_deleted;
 }

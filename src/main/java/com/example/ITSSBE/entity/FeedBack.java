@@ -25,4 +25,6 @@ public class FeedBack {
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "user")
     private User by_user;
+    @Column( name = "is_deleted")
+    private boolean is_deleted;
 }
