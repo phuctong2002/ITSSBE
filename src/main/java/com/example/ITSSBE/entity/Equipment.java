@@ -23,7 +23,7 @@ public class Equipment {
     @Column( name = "purchase_date")
     private Date puchase_date;
     @Column( name = "price")
-    private int price;
+    private double price;
     @Column( name = "warranty_period")
     private int warranty_period;
     @ManyToOne( fetch = FetchType.EAGER)
