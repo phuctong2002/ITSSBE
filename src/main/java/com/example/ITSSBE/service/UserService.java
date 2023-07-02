@@ -51,4 +51,14 @@ public class UserService {
         List<User> customers = userRepo.findCustomers();
         return customers.stream().map(customer -> userConverter.toDTO(customer)).collect(Collectors.toList());
     }
+
+    public void deleteUser(int id) {
+        userRepo.deleteById(id);
+    }
+
+    public UserDTO updateUser(UserDTO userDTO) {
+        Role role = roleRepo.findFirstByRoleId(userDTO.getRole_id());
+        User user = userConverter.toEntity(userDTO, role);
+        return userConverter.toDTO(userRepo.save(user));
+    }
 }

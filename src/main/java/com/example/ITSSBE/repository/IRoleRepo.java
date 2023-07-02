@@ -11,4 +11,6 @@ public interface IRoleRepo extends JpaRepository<Role, Integer> {
 
     @Query( value = "SELECT * FROM role where name = :name LIMIT 1", nativeQuery = true)
     Role findByName(@Param("name") String name);
+    @Query( value = "select * from role where id = :id limit 1", nativeQuery = true)
+    Role findFirstByRoleId(@Param("id") int id);
 }
