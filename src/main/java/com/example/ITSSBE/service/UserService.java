@@ -57,6 +57,9 @@ public class UserService {
     }
 
     public UserDTO updateUser(UserDTO userDTO) {
+        User tmp = userRepo.findFirstById(userDTO.getId());
+        if (tmp == null)
+            return null;
         Role role = roleRepo.findFirstByRoleId(userDTO.getRole_id());
         User user = userConverter.toEntity(userDTO, role);
         return userConverter.toDTO(userRepo.save(user));
