@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -39,5 +40,15 @@ public class UserService {
     }
     public List<Role> getAllRoles() {
         return roleRepo.findAll();
+    }
+
+    public List<UserDTO> getAllStaff() {
+        List<User> staffs = userRepo.findByRole();
+        return staffs.stream().map(staff -> userConverter.toDTO(staff)).collect(Collectors.toList());
+    }
+
+    public List<UserDTO> getAllCustomers() {
+        List<User> customers = userRepo.findCustomers();
+        return customers.stream().map(customer -> userConverter.toDTO(customer)).collect(Collectors.toList());
     }
 }

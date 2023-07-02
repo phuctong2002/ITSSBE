@@ -31,5 +31,12 @@ public class UserController {
     public ResponseEntity<Object> getRoles(){
         return new ResponseEntity<>( userService.getAllRoles(), HttpStatus.OK);
     }
-
+    @GetMapping("/staff")
+    public ResponseEntity<Object> getStaff(){
+        return new ResponseEntity<>( userService.getAllStaff(), HttpStatus.OK);
+    }
+    @GetMapping("/customer")
+    public ResponseEntity<Object> geTCustomer(){
+        return new ResponseEntity<>( userService.getAllCustomers(), HttpStatus.OK);
+    }
 }
