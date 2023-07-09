@@ -215,4 +215,43 @@ class ItssbeApplicationTests {
 		verifyNoMoreInteractions(roomRepo, equipmentRepo, equipmentConverter);
 	}
 
+	@Test
+	public void testDeleteEquipment() {
+		// Arrange
+		int equipmentId = 1;
+
+		Equipment equipment = new Equipment();
+		equipment.setId(equipmentId);
+		equipment.set_deleted(false);
+
+		when(equipmentRepo.findById(equipmentId)).thenReturn(equipment);
+
+		// Act
+		equipmentService.deleteEquipment(equipmentId);
+
+		// Assert
+		Assertions.assertTrue(equipment.is_deleted());
+
+		verify(equipmentRepo, times(1)).findById(equipmentId);
+	}
+
+
+	@Test
+	public void testDeleteEquipmentNotFound() {
+		// Arrange
+		int equipmentId = 1;
+
+		when(equipmentRepo.findById(equipmentId)).thenReturn(null);
+
+		// Act
+		equipmentService.deleteEquipment(equipmentId);
+
+		// Assert
+		// No assertions can be made since equipment is not found
+
+		verify(equipmentRepo, times(1)).findById(equipmentId);
+	}
+
+
+
 }
