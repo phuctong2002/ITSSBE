@@ -67,7 +67,6 @@ public class RegisterService {
 
     public void deleteRegister(int id) {
         Register register = registerRepo.findFirstById(id);
-        processRepo.deleteByRegister(register.getId());
-        registerRepo.delete(register);
+        registerRepo.deleteById(register.getId());
     }
 }

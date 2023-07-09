@@ -19,6 +19,8 @@ public class UserDTO {
     private String gender;
     private String gmail;
     private String password;
+    private String avatar;
+    private Boolean is_deleted;
     private int role_id;
     private String role_name;
     private String phone;

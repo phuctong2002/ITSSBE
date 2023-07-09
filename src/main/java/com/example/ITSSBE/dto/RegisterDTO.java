@@ -15,6 +15,7 @@ public class RegisterDTO {
     private int my_package_id;
     private String my_package_name;
     private int register_by_id;
+    private Boolean is_registered;
     private String register_by_name;
     private int trainer_id;
     private String trainer_name;

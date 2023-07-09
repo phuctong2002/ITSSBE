@@ -48,6 +48,4 @@ public class UserController {
     public ResponseEntity<Object> updateUser( @RequestBody UserDTO user){
         return new ResponseEntity<>(userService.updateUser(user ), HttpStatus.OK);
     }
-
-
 }

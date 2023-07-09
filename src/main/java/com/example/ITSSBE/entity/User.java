@@ -31,9 +31,11 @@ public class User {
     private String password;
     @Column( name = "phone")
     private String phone;
+    @Column( name = "avatar")
+    private String avatar;
+    @Column( name = "is_deleted")
+    private Boolean is_deleted;
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "role")
     private Role role;
-
-
 }
