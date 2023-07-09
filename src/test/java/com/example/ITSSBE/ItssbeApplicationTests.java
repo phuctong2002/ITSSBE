@@ -2,8 +2,12 @@ package com.example.ITSSBE;
 
 import com.example.ITSSBE.converter.EquipmentConverter;
 import com.example.ITSSBE.dto.EquipmentDTO;
+import com.example.ITSSBE.entity.EpCategory;
 import com.example.ITSSBE.entity.Equipment;
+import com.example.ITSSBE.entity.Room;
+import com.example.ITSSBE.repository.IEpCategoryRepo;
 import com.example.ITSSBE.repository.IEquipmentRepo;
+import com.example.ITSSBE.repository.IRoomRepo;
 import com.example.ITSSBE.service.EquipmentService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +32,12 @@ class ItssbeApplicationTests {
 
 	@Mock
 	private IEquipmentRepo equipmentRepo;
+
+	@Mock
+	private IRoomRepo roomRepo;
+
+	@Mock
+	private IEpCategoryRepo epCategoryRepo;
 
 	private EquipmentConverter equipmentConverter;
 	private EquipmentService equipmentService;
@@ -148,6 +158,61 @@ class ItssbeApplicationTests {
 
 		verify(equipmentRepo, times(1)).findById(equipmentId);
 		verifyNoMoreInteractions(equipmentConverter);
+	}
+
+	@Test
+	public void testAddEquipmentWhenCategoryExists() {
+		// Arrange
+		EquipmentDTO equipmentDTO = new EquipmentDTO();
+		equipmentDTO.setCategory_name("Category 1");
+		equipmentDTO.setRoom_id(1);
+
+		EpCategory existingCategory = new EpCategory();
+		existingCategory.setName("Category 1");
+
+		Room existingRoom = new Room();
+		existingRoom.setId(1);
+
+		Equipment equipment = new Equipment();
+		equipment.setId(1);
+		equipment.setCategory(existingCategory);
+		equipment.setRoom(existingRoom);
+
+		when(epCategoryRepo.findByName("Category 1")).thenReturn(existingCategory);
+		when(roomRepo.findById(1)).thenReturn(existingRoom);
+		when(equipmentRepo.save(any(Equipment.class))).thenReturn(equipment);
+		when(equipmentConverter.toDTO(equipment)).thenReturn(equipmentDTO);
+
+		// Act
+		EquipmentDTO result = equipmentService.addEquipment(equipmentDTO);
+
+		// Assert
+		Assertions.assertNotNull(result);
+		Assertions.assertEquals(equipmentDTO, result);
+
+		verify(epCategoryRepo, times(1)).findByName("Category 1");
+		verify(roomRepo, times(1)).findById(1);
+		verify(equipmentRepo, times(1)).save(any(Equipment.class));
+		verify(equipmentConverter, times(1)).toDTO(equipment);
+	}
+
+	@Test
+	public void testAddEquipmentWhenCategoryDoesNotExist() {
+		// Arrange
+		EquipmentDTO equipmentDTO = new EquipmentDTO();
+		equipmentDTO.setCategory_name("Non-existent Category");
+		equipmentDTO.setRoom_id(1);
+
+		when(epCategoryRepo.findByName("Non-existent Category")).thenReturn(null);
+
+		// Act
+		EquipmentDTO result = equipmentService.addEquipment(equipmentDTO);
+
+		// Assert
+		Assertions.assertNull(result);
+
+		verify(epCategoryRepo, times(1)).findByName("Non-existent Category");
+		verifyNoMoreInteractions(roomRepo, equipmentRepo, equipmentConverter);
 	}
 
 }
