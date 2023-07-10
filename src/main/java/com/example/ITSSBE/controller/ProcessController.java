@@ -22,6 +22,9 @@ public class ProcessController {
     public ResponseEntity<Object> addProcess(@RequestBody ProcessDTO processDTO){
         return new ResponseEntity<>(processService.addProcess(processDTO), HttpStatus.CREATED);
     }
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getProcessByRegisterId(@PathVariable int id){
+        return new ResponseEntity<>(processService.getProcessByRegisterId(id), HttpStatus.OK);
+    }
 
 }

@@ -33,4 +33,9 @@ public class ProcessService {
         Process savedProcess = processRepo.save(process);
         return processConverter.toDTO(savedProcess);
     }
+
+    public List<ProcessDTO> getProcessByRegisterId(int id) {
+        List<Process> processes = processRepo.getByRegisterId(id);
+        return processes.stream().map( process -> processConverter.toDTO(process)).collect(Collectors.toList());
+    }
 }
