@@ -34,8 +34,10 @@ public class PackageService {
         return packageRepo.save(paInDB);
     }
 
-    public void deletePackage(int id) {
+    public Package deletePackage(int id) {
         Package pa = packageRepo.findById(id);
         pa.set_deleted(true);
+        Package savedPackage = packageRepo.save(pa);
+        return savedPackage;
     }
 }

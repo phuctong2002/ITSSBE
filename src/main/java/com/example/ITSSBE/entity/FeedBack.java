@@ -27,4 +27,6 @@ public class FeedBack {
     private User by_user;
     @Column( name = "is_deleted")
     private boolean is_deleted;
+    @Column( name = "parent_feedback_id")
+    private int parent_feedback_id;
 }

@@ -34,8 +34,10 @@ public class RoomService {
         return roomRepo.save(roomDB);
     }
 
-    public void deleteRoom(int id) {
+    public Room deleteRoom(int id) {
         Room room = roomRepo.findById(id);
         room.set_deleted(true);
+        Room saveRoom = roomRepo.save(room);
+        return saveRoom;
     }
 }
