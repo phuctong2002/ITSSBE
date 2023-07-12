@@ -57,8 +57,10 @@ public class EquipmentService {
         Equipment savedEquipment = equipmentRepo.save(equipment);
         return equipmentConverter.toDTO(savedEquipment);
     }
-    public void deleteEquipment(int id) {
+    public EquipmentDTO deleteEquipment(int id) {
         Equipment equipment = equipmentRepo.findById(id);
         equipment.set_deleted(true);
+        Equipment savedEquipment = equipmentRepo.save(equipment);
+        return equipmentConverter.toDTO(savedEquipment);
     }
 }

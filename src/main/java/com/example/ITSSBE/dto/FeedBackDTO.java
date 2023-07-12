@@ -14,4 +14,5 @@ public class FeedBackDTO {
     private Date created_at;
     private String content;
     private int user_id;
+    private int parent_feedback_id;
 }

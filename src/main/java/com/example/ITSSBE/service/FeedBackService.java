@@ -46,8 +46,10 @@ public class FeedBackService {
         FeedBack savedFeedBack = feedBackRepo.save(feedBack);
         return feedBackConverter.toDTO(savedFeedBack);
     }
-    public void deleteFeedBack(int id) {
+    public FeedBackDTO deleteFeedBack(int id) {
         FeedBack feedBack = feedBackRepo.findById(id);
         feedBack.set_deleted(true);
+        FeedBack savedFeedBack = feedBackRepo.save(feedBack);
+        return feedBackConverter.toDTO(savedFeedBack);
     }
 }
