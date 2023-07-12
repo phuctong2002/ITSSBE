@@ -1,5 +1,6 @@
 package com.example.ITSSBE.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,4 +25,5 @@ public class Process {
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "register")
     private Register register;
+
 }
