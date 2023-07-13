@@ -69,4 +69,9 @@ public class RegisterService {
         Register register = registerRepo.findFirstById(id);
         registerRepo.deleteById(register.getId());
     }
+
+    public List<RegisterDTO> getRegisterByCustomerId(int customerId) {
+        List<Register> registers = registerRepo.findByCustomerId(customerId);
+        return registers.stream().map(register-> registerConverter.toDTO(register)).collect(Collectors.toList());
+    }
 }

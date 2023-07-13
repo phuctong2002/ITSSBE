@@ -30,6 +30,10 @@ public class RegisterController {
     public ResponseEntity<Object> getRegister(@PathVariable int id){
         return new ResponseEntity<>(registerService.getRegister(id), HttpStatus.OK);
     }
+    @GetMapping("/customer/{customerId}")
+    public ResponseEntity<Object> getRegisterByCustomerId(@PathVariable int customerId){
+        return new ResponseEntity<>(registerService.getRegisterByCustomerId(customerId), HttpStatus.OK);
+    }
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteRegister( @PathVariable int id){
         registerService.deleteRegister(id);
