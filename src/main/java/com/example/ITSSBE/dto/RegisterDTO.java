@@ -14,6 +14,7 @@ public class RegisterDTO {
     private Date created_at;
     private int my_package_id;
     private String my_package_name;
+    private int price;
     private int register_by_id;
     private Boolean is_registered;
     private String register_by_name;

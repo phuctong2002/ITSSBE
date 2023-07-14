@@ -20,6 +20,7 @@ public class RegisterConverter {
         registerDTO.setCreated_at(register.getCreated_at());
         registerDTO.setMy_package_id(register.getMy_package().getId());
         registerDTO.setMy_package_name(register.getMy_package().getName());
+        registerDTO.setPrice(register.getMy_package().getPrice());
         registerDTO.setRegister_by_id(register.getRegister_by().getId());
         registerDTO.setRegister_by_name(register.getRegister_by().getLast_name());
         registerDTO.setTrainer_id(register.getTrainer().getId());
