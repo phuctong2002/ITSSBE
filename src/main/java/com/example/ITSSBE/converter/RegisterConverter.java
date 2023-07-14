@@ -27,6 +27,7 @@ public class RegisterConverter {
         registerDTO.setTrainer_name(register.getTrainer().getLast_name());
         registerDTO.setCustomer_id(register.getCustomer().getId());
         registerDTO.setCustomer_name(register.getCustomer().getLast_name());
+        registerDTO.setGmail(register.getCustomer().getGmail());
         return registerDTO;
     }
 

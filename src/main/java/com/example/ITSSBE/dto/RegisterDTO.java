@@ -22,4 +22,5 @@ public class RegisterDTO {
     private String trainer_name;
     private int customer_id;
     private String customer_name;
+    private String gmail;
 }
