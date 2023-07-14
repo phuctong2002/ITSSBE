@@ -20,6 +20,7 @@ public class RegisterDTO {
     private String register_by_name;
     private int trainer_id;
     private String trainer_name;
+
     private int customer_id;
     private String customer_name;
     private String gmail;
