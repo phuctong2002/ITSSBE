@@ -1,8 +1,7 @@
 package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.dto.ProcessDTO;
-import com.example.ITSSBE.service.ProcessService;
-import jakarta.servlet.http.HttpServletResponse;
+import com.example.ITSSBE.service.IProcessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/process")
 public class ProcessController {
     @Autowired
-    private ProcessService processService;
+    private IProcessService processService;
     @GetMapping("/")
     public ResponseEntity<Object> getAllProcess(){
         return new ResponseEntity<>( processService.getAllProcess() , HttpStatus.OK);

@@ -1,8 +1,7 @@
 package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.dto.RegisterDTO;
-import com.example.ITSSBE.service.RegisterService;
-import jakarta.servlet.http.HttpServletResponse;
+import com.example.ITSSBE.service.IRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/register")
 public class RegisterController {
     @Autowired
-    private RegisterService registerService;
+    private IRegisterService registerService;
     @GetMapping("/")
     public ResponseEntity<Object> getRegisters(){
         return new ResponseEntity<>(registerService.getRegisters(), HttpStatus.OK);

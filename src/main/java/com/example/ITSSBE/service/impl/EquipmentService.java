@@ -1,9 +1,10 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.converter.EquipmentConverter;
 import com.example.ITSSBE.dto.EquipmentDTO;
 import com.example.ITSSBE.entity.*;
 import com.example.ITSSBE.repository.*;
+import com.example.ITSSBE.service.IEquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-
-public class EquipmentService {
+public class EquipmentService implements IEquipmentService {
     @Autowired
     private IEquipmentRepo equipmentRepo;
     @Autowired

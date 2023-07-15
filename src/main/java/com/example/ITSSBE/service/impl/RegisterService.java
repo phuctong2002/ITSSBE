@@ -1,4 +1,4 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.converter.RegisterConverter;
 import com.example.ITSSBE.dto.RegisterDTO;
@@ -9,6 +9,7 @@ import com.example.ITSSBE.repository.IPackageRepo;
 import com.example.ITSSBE.repository.IProcessRepo;
 import com.example.ITSSBE.repository.IRegisterRepo;
 import com.example.ITSSBE.repository.IUserRepo;
+import com.example.ITSSBE.service.IRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class RegisterService {
+public class RegisterService implements IRegisterService {
     @Autowired
     private IRegisterRepo registerRepo;
     @Autowired

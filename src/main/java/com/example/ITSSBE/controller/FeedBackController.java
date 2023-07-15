@@ -2,7 +2,7 @@ package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.dto.FeedBackDTO;
 import com.example.ITSSBE.entity.User;
-import com.example.ITSSBE.service.FeedBackService;
+import com.example.ITSSBE.service.IFeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 public class FeedBackController {
 
     @Autowired
-    private FeedBackService feedBackService;
+    private IFeedbackService feedBackService;
 
     @GetMapping("/")
     public ResponseEntity<List<FeedBackDTO>> getAllFeedBack() {

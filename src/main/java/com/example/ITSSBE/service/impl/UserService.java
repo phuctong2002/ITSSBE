@@ -1,4 +1,4 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.converter.UserConverter;
 import com.example.ITSSBE.dto.UserDTO;
@@ -6,6 +6,7 @@ import com.example.ITSSBE.entity.Role;
 import com.example.ITSSBE.entity.User;
 import com.example.ITSSBE.repository.IRoleRepo;
 import com.example.ITSSBE.repository.IUserRepo;
+import com.example.ITSSBE.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserService implements IUserService {
     @Autowired
     private IUserRepo userRepo;
     @Autowired

@@ -12,8 +12,8 @@ import com.example.ITSSBE.repository.IEpCategoryRepo;
 import com.example.ITSSBE.repository.IEquipmentRepo;
 import com.example.ITSSBE.repository.IFeedBackRepo;
 import com.example.ITSSBE.repository.IRoomRepo;
-import com.example.ITSSBE.service.EquipmentService;
-import com.example.ITSSBE.service.FeedBackService;
+import com.example.ITSSBE.service.impl.EquipmentService;
+import com.example.ITSSBE.service.impl.FeedBackService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 

@@ -1,17 +1,18 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.converter.FeedBackConverter;
 import com.example.ITSSBE.dto.FeedBackDTO;
 import com.example.ITSSBE.entity.FeedBack;
 import com.example.ITSSBE.entity.User;
 import com.example.ITSSBE.repository.*;
+import com.example.ITSSBE.service.IFeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 @Service
-public class FeedBackService {
+public class FeedBackService implements IFeedbackService {
     @Autowired
     private IFeedBackRepo feedBackRepo;
     @Autowired
