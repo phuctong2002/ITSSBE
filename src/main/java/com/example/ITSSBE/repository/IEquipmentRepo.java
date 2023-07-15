@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface IEquipmentRepo extends JpaRepository<Equipment, Integer> {
     @Query( value = "SELECT * FROM equipment WHERE room = :id ", nativeQuery = true)
-    List<Equipment> findById(@Param("id") int id);
+    Equipment findById(@Param("id") int id);
     @Query( value = "SELECT * FROM equipment WHERE name = :name ", nativeQuery = true)
     Equipment findByName(@Param("name") String name);
     @Query( value = "DELETE FROM equipment WHERE id = :id LIMIT 1", nativeQuery = true)
