@@ -19,7 +19,8 @@ public class RegisterDTO {
     private int trainer_id;
     private String trainer_name;
     private int customer_id;
-    private String customer_name;    
+    private String customer_name; 
+    private String gmail;   
     private int price;
 
 }
