@@ -1,14 +1,15 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.entity.Room;
 import com.example.ITSSBE.repository.IRoomRepo;
+import com.example.ITSSBE.service.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RoomService {
+public class RoomService implements IRoomService {
     @Autowired
     private IRoomRepo roomRepo;
 

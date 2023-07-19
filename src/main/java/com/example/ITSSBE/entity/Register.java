@@ -19,6 +19,8 @@ public class Register {
     private int id;
     @Column( name = "created_at")
     private Date created_at;
+    @Column( name = "is_deleted")
+    private Boolean is_deleted;
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "package")
     private Package my_package;

@@ -1,7 +1,7 @@
 package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.dto.UserDTO;
-import com.example.ITSSBE.service.UserService;
+import com.example.ITSSBE.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private IUserService userService;
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody UserDTO userDTO){
         UserDTO confirmUserDTO = userService.getUserDTO( userDTO);
@@ -31,5 +31,21 @@ public class UserController {
     public ResponseEntity<Object> getRoles(){
         return new ResponseEntity<>( userService.getAllRoles(), HttpStatus.OK);
     }
-
+    @GetMapping("/staff")
+    public ResponseEntity<Object> getStaff(){
+        return new ResponseEntity<>( userService.getAllStaff(), HttpStatus.OK);
+    }
+    @GetMapping("/customer")
+    public ResponseEntity<Object> geTCustomer(){
+        return new ResponseEntity<>( userService.getAllCustomers(), HttpStatus.OK);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteUser(@PathVariable int id){
+        userService.deleteUser(id);
+        return null;
+    }
+    @PatchMapping("/")
+    public ResponseEntity<Object> updateUser( @RequestBody UserDTO user){
+        return new ResponseEntity<>(userService.updateUser(user ), HttpStatus.OK);
+    }
 }

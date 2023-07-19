@@ -1,7 +1,7 @@
 package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.entity.Room;
-import com.example.ITSSBE.service.RoomService;
+import com.example.ITSSBE.service.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RoomController {
 
     @Autowired
-    private RoomService roomService;
+    private IRoomService roomService;
 
     @PostMapping("/")
     public ResponseEntity<Room> addRoom(@RequestBody Room room) {

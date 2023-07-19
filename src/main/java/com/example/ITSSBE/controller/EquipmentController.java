@@ -1,7 +1,7 @@
 package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.dto.EquipmentDTO;
-import com.example.ITSSBE.service.EquipmentService;
+import com.example.ITSSBE.service.IEquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 public class EquipmentController {
 
     @Autowired
-    private EquipmentService equipmentService;
+    private IEquipmentService equipmentService;
 
     @GetMapping("/")
     public ResponseEntity<List<EquipmentDTO>> getAllEquipments() {

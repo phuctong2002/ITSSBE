@@ -1,7 +1,7 @@
 package com.example.ITSSBE.controller;
 
 import com.example.ITSSBE.entity.Package;
-import com.example.ITSSBE.service.PackageService;
+import com.example.ITSSBE.service.IPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class PackageController {
     @Autowired
-    private PackageService packageService;
+    private IPackageService packageService;
     @GetMapping("/")
     public ResponseEntity<Object> getAllPackages(){
         return new ResponseEntity<>( packageService.getAllPackages() , HttpStatus.OK);

@@ -1,14 +1,15 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.entity.Package;
 import com.example.ITSSBE.repository.IPackageRepo;
+import com.example.ITSSBE.service.IPackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PackageService {
+public class PackageService implements IPackageService {
     @Autowired
     private IPackageRepo packageRepo;
 

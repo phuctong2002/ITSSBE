@@ -1,4 +1,4 @@
-package com.example.ITSSBE.service;
+package com.example.ITSSBE.service.impl;
 
 import com.example.ITSSBE.converter.ProcessConverter;
 import com.example.ITSSBE.dto.ProcessDTO;
@@ -6,6 +6,7 @@ import com.example.ITSSBE.entity.Process;
 import com.example.ITSSBE.entity.Register;
 import com.example.ITSSBE.repository.IProcessRepo;
 import com.example.ITSSBE.repository.IRegisterRepo;
+import com.example.ITSSBE.service.IProcessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ProcessService {
+public class ProcessService implements IProcessService {
     @Autowired
     private IProcessRepo processRepo;
     @Autowired
@@ -32,5 +33,10 @@ public class ProcessService {
         Process process = processConverter.toEntity( processDTO, register);
         Process savedProcess = processRepo.save(process);
         return processConverter.toDTO(savedProcess);
+    }
+
+    public List<ProcessDTO> getProcessByRegisterId(int id) {
+        List<Process> processes = processRepo.getByRegisterId(id);
+        return processes.stream().map( process -> processConverter.toDTO(process)).collect(Collectors.toList());
     }
 }
