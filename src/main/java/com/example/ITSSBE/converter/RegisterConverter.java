@@ -16,7 +16,8 @@ public class RegisterConverter {
         if( register == null)
             return null;
         RegisterDTO registerDTO = new RegisterDTO();
-        registerDTO.setId(register.getId());
+        registerDTO.setId(register.getId());        registerDTO.setId(register.getId());
+        registerDTO.setPrice(register.getPrice());
         registerDTO.setCreated_at(register.getCreated_at());
         registerDTO.setMy_package_id(register.getMy_package().getId());
         registerDTO.setMy_package_name(register.getMy_package().getName());

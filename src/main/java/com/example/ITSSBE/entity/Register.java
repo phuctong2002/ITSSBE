@@ -31,5 +31,7 @@ public class Register {
     @ManyToOne( fetch = FetchType.EAGER)
     @JoinColumn( name = "customer")
     private User customer;
+    @Column( name =  "price")
+    private int price;
 
 }

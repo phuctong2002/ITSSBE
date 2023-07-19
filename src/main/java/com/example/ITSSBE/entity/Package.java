@@ -23,4 +23,6 @@ public class Package {
     private String description;
     @Column( name = "is_deleted")
     private boolean is_deleted;
+    @Column( name = "time")
+    private int time;
 }

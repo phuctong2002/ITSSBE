@@ -13,6 +13,7 @@ public class FeedBackDTO {
     private int id;
     private Date created_at;
     private String content;
-    private int user_id;
+    private int user_id;    
+    private boolean is_deleted;
     private int parent_feedback_id;
 }
